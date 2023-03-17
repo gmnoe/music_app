@@ -1,0 +1,11 @@
+Entities for spotify database
+
+--Song
+--Artist
+--Album
+--Playlists
+
+--Users
+
+--Podcasts
+--Episodes
