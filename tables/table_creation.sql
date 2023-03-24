@@ -86,6 +86,12 @@ CREATE TABLE artists_albums (
 
 -- One to many
 ALTER TABLE songs
+ADD album_id INT NOT NULL;
+
+ALTER TABLE episodes
+ADD podcast_id INT;
+
+ALTER TABLE songs
 ADD CONSTRAINT fk_songs_albums
 FOREIGN KEY (album_id)
 REFERENCES albums;
