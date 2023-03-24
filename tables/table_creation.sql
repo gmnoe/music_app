@@ -3,13 +3,15 @@
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL
+    playlists INT,
+    followers INT,
+    following INT
 );
 
 CREATE TABLE artists (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
-    bio TEXT,
+    wiki_page VARCHAR(100),
     followers INT
 );
 
