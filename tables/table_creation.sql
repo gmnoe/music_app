@@ -11,7 +11,7 @@ CREATE TABLE users (
 CREATE TABLE artists (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
-    wiki_page VARCHAR(100),
+    website VARCHAR(100) UNIQUE,
     followers INT
 );
 
@@ -27,9 +27,8 @@ CREATE TABLE songs (
     length_mins INT NOT NULL,
     title VARCHAR(100) NOT NULL,
     song_count INT NOT NULL,
-    release_date DATE,
-    artwork_url VARCHAR(100)
- );
+    release_date DATE 
+    );
 
  CREATE TABLE playlists (
     id SERIAL PRIMARY KEY,
