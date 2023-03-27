@@ -33,22 +33,19 @@ CREATE TABLE songs (
  CREATE TABLE playlists (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
-    length INT NOT NULL,
+    length_mins INT NOT NULL,
     song_count INT NOT NULL
  );
 
  CREATE TABLE podcasts (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    bio TEXT,
-    followers INT
- );
+    name VARCHAR(100) NOT NULL
+    );
 
  CREATE TABLE episodes (
     id SERIAL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
-    description TEXT,
-    length INT NOT NULL,
+    length_mins INT NOT NULL,
     release_date DATE
  );
 
@@ -86,11 +83,19 @@ CREATE TABLE artists_albums (
 
 
 -- One to many
+ALTER TABLE playlists
+ADD user_id INT;
+
 ALTER TABLE songs
 ADD album_id INT NOT NULL;
 
 ALTER TABLE episodes
 ADD podcast_id INT;
+
+ALTER TABLE playlists
+ADD CONSTRAINT fk_playlists_users
+FOREIGN KEY (user_id)
+REFERENCES users;
 
 ALTER TABLE songs
 ADD CONSTRAINT fk_songs_albums
